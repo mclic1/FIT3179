@@ -1,4 +1,4 @@
-Country Name,Country Code,Access to electricity percent of population
+Country,CountryCode,ElectricityAccessPerentOfPop
 Afghanistan,AFG,98.71320343
 Albania,ALB,100
 Algeria,DZA,100
@@ -102,7 +102,7 @@ Jordan,JOR,99.9
 Kazakhstan,KAZ,100
 Kenya,KEN,75
 Kiribati,KIR,100
-"Korea, Dem. People’s Rep.",PRK,48.49082565
+"Korea, Dem. Peopleâ€™s Rep.",PRK,48.49082565
 "Korea, Rep.",KOR,100
 Kosovo,XKX,100
 Kuwait,KWT,100
