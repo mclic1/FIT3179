@@ -5,10 +5,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
-<p style="text-align: center;"><span style='font-family: "Trebuchet MS", Helvetica, sans-serif;'><strong>Population density in the world</strong></span></p>
-<p style="text-align: center;">Equal Earth Projection</p>
+<p style="text-align: center;"><span style='font-family: "Trebuchet MS", Helvetica, sans-serif;'><strong>Population Density in the World</strong></span></p>
+<p style="text-align: center;"><span style="font-family: 'Trebuchet MS', Helvetica, sans-serif;">Equal Earth Projection</span></p>
 <body>  
-  <div id="vis"></div>
+  <div id="vis">#inner {
+  width: 50%;
+  margin: 0 auto;
+}</div>
   
   <script>
     const spec = "pop_density_equalearth.json";
