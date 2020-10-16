@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  
+  font-size: 20px;
+  background-color: cyan;
+  border: darkgreen 5px solid;
+  padding: 5px;
+  z-index: 100;
+}
+
 <head>
   <meta charset="utf-8">
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -7,22 +24,11 @@
 </head>
 <p style="text-align: center;"><span style='font-family: "Trebuchet MS", Helvetica, sans-serif;'><strong>Population Density in the World</strong></span></p>
 <p style="text-align: center;"><span style="font-family: 'Trebuchet MS', Helvetica, sans-serif;">Equal Earth Projection</span></p>
-div {
-	width: 100px;
-	height: 100px;
-	background-color: red;
-	
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-  	
-	margin: auto;
-}
-<body>  
 
-  <div id="vis"></div>
+<body>  
+	
+
+  <div id="vis" class="centered"></div>
   
   <script>
     const spec = "pop_density_equalearth.json";
