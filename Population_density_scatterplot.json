@@ -11,21 +11,17 @@
   "mark": {"type": "point"},
   "encoding": {
     "x": {
-      "field": "2017",
-      "type": "quantitative",
-      "scale": {"type": "log"},
-      "axis": {
-        "tickCount": 6,
-        "grid": false,
-        "title": "Population Density (sq. km) (2017)"
-      }
-    },
-    "y": {
       "field": "LandSizeSqKm",
       "type": "quantitative",
       "scale": {"type": "log"},
-      "axis": {"tickCount": 8, "grid": false, "title": "Land Size (sq. km)"},
-      "title": "Population (2017)",
+      "axis": {"tickCount": 6, "grid": false, "title": "Land Size (sq. km)"}
+    },
+    "y": {
+      "field": "2017",
+      "type": "quantitative",
+      "scale": {"type": "log"},
+      "axis": {"tickCount": 6, "grid": false, "title": ""},
+      "title": "Population Density (sq. km) (2017)",
       "legend": {"format": ".2s"}
     },
     "color": {"field": "Continent", "type": "nominal"},
