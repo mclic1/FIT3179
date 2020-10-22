@@ -25,6 +25,7 @@
       "title": {"Population Density (sq. km) (2017)"},
       "legend": {"format": ".2s"}
     },
+      "size": {"value": 90},
     "color": {"field": "Continent", "type": "nominal"},
     "tooltip": [
       {"field": "Country", "type": "nominal", "title": "Country"},
