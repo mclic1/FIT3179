@@ -14,14 +14,15 @@
       "field": "LandSizeSqKm",
       "type": "quantitative",
       "scale": {"type": "log"},
-      "axis": {"tickCount": 6, "grid": false, "title": "Land Size (sq. km)"}
+      "axis": {"tickCount": 6, "grid": false},
+      "title": {"Land Size (sq. km)"}
     },
     "y": {
       "field": "2017",
       "type": "quantitative",
       "scale": {"type": "log"},
       "axis": {"tickCount": 6, "grid": false, "title": ""},
-      "title": "Population Density (sq. km) (2017)",
+      "title": {"Population Density (sq. km) (2017)"},
       "legend": {"format": ".2s"}
     },
       "size": {"value": 90},
