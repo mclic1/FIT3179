@@ -50,13 +50,13 @@
       "title": "Land Size (sq. km)"
     },
     "y": {
-      "field": "2017",
+      "field": "PopulationCurrent",
       "type": "quantitative",
       "scale": {"type": "log"},
       "axis": {
         "tickCount": 6,
         "grid": false,
-        "title": "Population Density (sq. km) (2017)"
+        "title": "Population (2017)"
       }
     },
     "size": {"value": 90},
