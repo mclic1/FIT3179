@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Population Density in the World - Equal Earth Projection",
-  "width": 600,
+  "width": 650,
   "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/mclic1/FIT3179/main/worldmap.json",
