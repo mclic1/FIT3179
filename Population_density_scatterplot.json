@@ -39,8 +39,6 @@
       "filter": "Continent_selection == null || datum.Continent == Continent_selection"
     }
   ],
-  "selection": {"grid": {"type": "interval", "bind": "scales"}},
-  "mark": {"type": "point"},
   "encoding": {
     "x": {
       "field": "LandSizeSqKm",
@@ -53,49 +51,95 @@
       "field": "PopulationCurrent",
       "type": "quantitative",
       "scale": {"type": "log"},
-      "axis": {
-        "tickCount": 6,
-        "grid": false,
-        "title": "Population (2017)"
-      }
-    },
-    "size": {"value": 90},
-    "color": {
-      "field": "Continent",
-      "type": "nominal",
-      "scale": {
-        "domain": [
-          "North America",
-          "South America",
-          "Europe",
-          "Africa",
-          "Asia",
-          "Oceania"
-        ],
-        "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#D62728", "#9467BD"]
-      }
-    },
-    "tooltip": [
-      {"field": "Country", "type": "nominal", "title": "Country"},
-      {
-        "field": "PopulationCurrent",
-        "type": "nominal",
-        "title": "Population (2017)",
-        "legend": {"format": ".3s"}
-      },
-      {
-        "field": "LandSizeSqKm",
-        "type": "quantitative",
-        "title": "Land Size (sq. km)",
-        "format": ",.0f"
-      },
-      {
-        "field": "2017",
-        "format": ",.2f",
-        "type": "quantitative",
-        "title": "Population Density per sq. km"
-      }
-    ]
+      "axis": {"tickCount": 6, "grid": false, "title": "Population (2017)"}
+    }
   },
+  "layer": [
+    {
+      "selection": {"grid": {"type": "interval", "bind": "scales"}},
+      "mark": {"type": "point"},
+      "encoding": {
+        "size": {"value": 90},
+        "color": {
+          "field": "Continent",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "North America",
+              "South America",
+              "Europe",
+              "Africa",
+              "Asia",
+              "Oceania"
+            ],
+            "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#D62728", "#9467BD"]
+          }
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {
+            "field": "PopulationCurrent",
+            "type": "nominal",
+            "title": "Population (2017)",
+            "legend": {"format": ".3s"}
+          },
+          {
+            "field": "LandSizeSqKm",
+            "type": "quantitative",
+            "title": "Land Size (sq. km)",
+            "format": ",.0f"
+          },
+          {
+            "field": "2017",
+            "format": ",.2f",
+            "type": "quantitative",
+            "title": "Population Density per sq. km"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 11.5,
+        "fontStyle": "bold"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Greenland' || datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Macao SAR, China' || datum['Country'] == 'Bangladesh' || datum['Country'] == 'India' || datum['Country'] == 'United States'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal", "title": "Country"},
+          {
+            "field": "PopulationCurrent",
+            "type": "nominal",
+            "title": "Population (2017)",
+            "format": ".3s"
+          },
+          {
+            "field": "LandSizeSqKm",
+            "type": "quantitative",
+            "title": "Land Size (sq. km)",
+            "format": ",.0f"
+          },
+          {
+            "field": "2017",
+            "format": ",.2f",
+            "type": "quantitative",
+            "title": "Population Density per sq. km"
+          }
+        ]
+      }
+    }
+  ],
   "config": {}
 }
