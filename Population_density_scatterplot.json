@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": 600,
+  "height": 400,
   "title": "Population VS Land Size (2017)",
   "data": {
     "url": "https://raw.githubusercontent.com/mclic1/FIT3179/main/Population%20density%20nonull.csv",
