@@ -59,7 +59,7 @@
       "selection": {"grid": {"type": "interval", "bind": "scales"}},
       "mark": {"type": "point"},
       "encoding": {
-        "size": {"value": 90},
+          "size": {"field": "2017", "type": "quantitative", "scale": {"type": "threshold", "domain": [5,10,50,100,200,500,1000,5000,10000], "range": [50,70,100,120,150,250,300,450,600,700,800,1000,2000], "rangeMin": 10, "rangeMax": 1000}},
         "color": {
           "field": "Continent",
           "type": "nominal",
@@ -109,6 +109,7 @@
       },
       "encoding": {
         "text": {"field": "Country", "type": "nominal"},
+        
         "color": {"value": "black"},
         "opacity": {
           "condition": {
