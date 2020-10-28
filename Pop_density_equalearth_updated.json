@@ -19,7 +19,8 @@
         "key": "CountryCode",
         "fields": ["2018"]
       }
-    }
+    },
+{"calculate": "(datum['2018'] > 0 ? toString(datum['2018']) : 'No Data')", "as": "Populationdensity"}
   ],
 
   "layer": [
@@ -33,12 +34,12 @@
       "field": "2018",
       "scale": {
         "type": "threshold",
-        "domain": [5, 10, 25, 50, 100, 200, 300, 400, 500, 1000, 1500],
-        "scheme": "purples"
-      }},
+        "domain": [5, 10, 25, 50, 100, 200, 400, 700, 1000, 1500],
+        "scheme": "blues"
+      },
       "type": "quantitative",
       "title": "Population density per sq. km"
-    }}},
+    }}}},
            {
 "mark": {"type": "geoshape"},
       "encoding": {
@@ -63,15 +64,14 @@
       }
     },
     {"mark": {"type": "geoshape"},
-      "encoding": {"condition": {
-            "test": "datum['2018'] == 0"},
+      "encoding": {
             "opacity": {"value": 0},
              "tooltip": [
       {"field": "properties.admin", "type": "nominal", "title": "Country"},
               {
-        "field": "2018",
-        "format": ".2f",
-        "type": "quantitative",
+        "field": "Populationdensity",
+                "format": ".2f",
+        "type": "nominal",
         "title": "Population Density per sq. km"
       }]}}],
   "config": {}
