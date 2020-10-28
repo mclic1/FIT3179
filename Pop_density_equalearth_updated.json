@@ -54,25 +54,13 @@
         "tooltip": [
           {"field": "properties.admin", "type": "nominal", "title": "Country"},
           {
-        "field": "2018",
+        "field": "Populationdensity",
         "format": ".2f",
         "type": "quantitative",
         "title": "Population Density per sq. km"
-      }
-        ]
+      }]
    
       }
-    },
-    {"mark": {"type": "geoshape"},
-      "encoding": {
-            "opacity": {"value": 0},
-             "tooltip": [
-      {"field": "properties.admin", "type": "nominal", "title": "Country"},
-              {
-        "field": "Populationdensity",
-                "format": ".2f",
-        "type": "nominal",
-        "title": "Population Density per sq. km"
-      }]}}],
+    }],
   "config": {}
 }
