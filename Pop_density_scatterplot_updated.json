@@ -73,7 +73,7 @@
               "Asia",
               "Oceania"
             ],
-            "range": ["#b491c8", "#ffc0cb", "#2ca02c", "#D62728", "#94714f"]
+            "range":["#b491c8", "#ffc0cb", "#2ca02c", "#D62728", "#FACA0F", "#92623a"]
           }
         },
         "tooltip": [
