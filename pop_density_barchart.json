@@ -18,13 +18,15 @@
     "y": {
       "field": "Country",
       "type": "nominal",
-      "sort": {"encoding": "x", "order": "descending"}
+      "sort": {"encoding": "x", "order": "descending"},
+      "axis": {"tickCount": 6, "grid": false}
     },
     "x": {
       "field": "Populationdensity",
       "title": "Population density per sq. km",
       "type": "quantitative",
-      "scale": {"padding": 10}
+      "scale": {"padding": 10},
+      "axis": {"tickCount": 6, "grid": false}
     }
   },
   "layer": [
