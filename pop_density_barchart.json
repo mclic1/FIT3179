@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Top 10 Countries/Regions with the Highest Population Density",
+  "data": {
+    "url": "https://raw.githubusercontent.com/mclic1/FIT3179/main/Population%20density%20nonull.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "calculate": "(datum['2018'] > 0 ? toNumber(datum['2018']) : 0)",
+      "as": "Populationdensity"
+    },
+    {"filter": {"field": "Populationdensity", "range": [800, 21000]}}
+  ],
+  "encoding": {
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "sort": {"encoding": "x", "order": "descending"}
+    },
+    "x": {
+      "field": "Populationdensity",
+      "title": "Population density per sq. km",
+      "type": "quantitative",
+      "scale": {"padding": 10}
+    }
+  },
+  "layer": [
+    {"mark": "bar"},
+    {
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 10},
+      "encoding": {
+        "text": {"field": "2018", "type": "quantitative", "format": ",.0f"}
+      }
+    }
+  ],
+  "config": {}
+}
