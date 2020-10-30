@@ -1,13 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "width": 600,
+    "width": 800,
   "height": 400,
   "title": "Population VS Land Size (2017)",
   "data": {
-    "url": "https://raw.githubusercontent.com/mclic1/FIT3179/main/Population%20density%20nonull.csv",
+    "url": "https://raw.githubusercontent.com/mclic1/FIT3179/main/Popdensity_timeseries.csv",
     "format": {"type": "csv"}
   },
   "params": [
+    { "name": "Year", "value": 1961, "bind": { "input": "range", "min": 1961, "max": 2017, "step": 1, "name": "Year" } },
     {
       "name": "Continent_selection",
       "bind": {
@@ -35,6 +36,9 @@
     }
   ],
   "transform": [
+    {"filter": "datum['Pivot Field Names'] == Year"},
+    {"filter": "datum['Population'] > 0"},
+        {"filter": "datum['Population_density'] > 0"},
     {
       "filter": "Continent_selection == null || datum.Continent == Continent_selection"
     }
@@ -43,15 +47,15 @@
     "x": {
       "field": "LandSizeSqKm",
       "type": "quantitative",
-      "scale": {"type": "log"},
+      "scale": {"domain": [1, 100000000], "type": "log"},
       "axis": {"tickCount": 6, "grid": false},
       "title": "Land Size (sq. km)"
     },
     "y": {
-      "field": "PopulationCurrent",
+      "field": "Population",
       "type": "quantitative",
-      "scale": {"type": "log"},
-      "axis": {"tickCount": 6, "grid": false, "title": "Population (2017)"}
+      "scale": {"domain": [1000, 10000000000], "type": "log"},
+      "axis": {"tickCount": 6, "grid": false, "title": "Population"}
     }
   },
   "layer": [
@@ -59,7 +63,7 @@
       "selection": {"grid": {"type": "interval", "bind": "scales"}},
       "mark": {"type": "point"},
       "encoding": {
-          "size": {"field": "2017", "type": "quantitative", "scale": {"type": "threshold", "domain": [5,10,50,100,200,500,1000,5000,10000], "range": [50,70,100,120,150,250,300,450,600,700,800,1000,2000], "rangeMin": 10, "rangeMax": 1000}, "title": "Population Density (per sq. km)"},
+          "size": {"field": "Population_density", "type": "quantitative", "scale": {"type": "threshold", "domain": [5,10,50,100,200,500,1000,5000,10000], "range": [50,70,100,120,150,250,300,450,600,700,800,1000,2000], "rangeMin": 10, "rangeMax": 1000}, "title": "Population Density (per sq. km)"},
        
         "color": {
           "field": "Continent",
@@ -77,11 +81,11 @@
           }
         },
         "tooltip": [
-          {"field": "Country", "type": "nominal", "title": "Country"},
+          {"field": "Country Name", "type": "nominal", "title": "Country"},
           {
-            "field": "PopulationCurrent",
+            "field": "Population",
             "type": "nominal",
-            "title": "Population (2017)",
+            "title": "Population",
             "legend": {"format": ".3s"}
           },
           {
@@ -91,7 +95,7 @@
             "format": ",.0f"
           },
           {
-            "field": "2017",
+            "field": "Population_density",
             "format": ",.2f",
             "type": "quantitative",
             "title": "Population Density per sq. km"
@@ -109,12 +113,12 @@
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "Country", "type": "nominal"},
+        "text": {"field": "Country Name", "type": "nominal"},
         
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'Monaco' || datum['Country'] == 'Greenland' || datum['Country'] == 'China' || datum['Country'] == 'Australia' || datum['Country'] == 'Macao SAR, China' || datum['Country'] == 'Bangladesh' || datum['Country'] == 'India' || datum['Country'] == 'United States'",
+            "test": "datum['Country Name'] == 'Monaco' || datum['Country Name'] == 'Greenland' || datum['Country Name'] == 'China' || datum['Country Name'] == 'Australia' || datum['Country Name'] == 'Macao SAR, China' || datum['Country Name'] == 'Bangladesh' || datum['Country Name'] == 'India' || datum['Country Name'] == 'United States'",
             "value": 1
           },
           "value": 0
