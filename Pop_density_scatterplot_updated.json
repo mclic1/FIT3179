@@ -8,7 +8,7 @@
     "format": {"type": "csv"}
   },
   "params": [
-    { "name": "Year", "value": 1961, "bind": { "input": "range", "min": 1961, "max": 2017, "step": 1, "name": "Year" } },
+    { "name": "Year", "value": 2017, "bind": { "input": "range", "min": 1961, "max": 2017, "step": 1, "name": "Year" } },
     {
       "name": "Continent_selection",
       "bind": {
@@ -48,14 +48,14 @@
       "field": "LandSizeSqKm",
       "type": "quantitative",
       "scale": {"domain": [1, 100000000], "type": "log"},
-      "axis": {"tickCount": 6, "grid": false},
+      "axis": {"tickCount": 6, "grid": false, "format": ".1s"},
       "title": "Land Size (sq. km)"
     },
     "y": {
       "field": "Population",
       "type": "quantitative",
       "scale": {"domain": [1000, 10000000000], "type": "log"},
-      "axis": {"tickCount": 6, "grid": false, "title": "Population"}
+      "axis": {"tickCount": 6, "grid": false, "title": "Population", "format": ".1s"}
     }
   },
   "layer": [
@@ -86,7 +86,7 @@
             "field": "Population",
             "type": "nominal",
             "title": "Population",
-            "legend": {"format": ".3s"}
+            "format": ".3s"
           },
           {
             "field": "LandSizeSqKm",
