@@ -213,13 +213,13 @@
   ],
   "transform": [
     {
-      "lookup": "CountryCode",
+      "lookup": "Country Code",
       "from": {
         "data": {
           "url": "https://raw.githubusercontent.com/mclic1/FIT3179/main/Popdensity_timeseries.csv",
           "format": {"type": "csv"}
         },
-        "key": "CountryCode",
+        "key": "Country Code",
         "fields": ["Population"]
       }
     },
@@ -233,10 +233,10 @@
   ],
   "encoding": {
     "x": {
-      "timeUnit": "year",
       "field": "Year",
-      "axis": {"format": "%Y"},
-      "title": "Year"
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false}
     },
     "y": {
       "aggregate": "sum",
@@ -252,23 +252,37 @@
         "color": {
           "field": "Indicator Name",
           "type": "nominal",
-          "scale": {"range": ["#ffc9cb", "#ed5a79"]}
+          "scale": {"range": ["#FFB347", "#3e5496"]},
+          "title": "Population Segment"
         },
         "tooltip": [
           {"field": "Country Name", "type": "nominal", "title": "Country"},
           {
             "field": "Population_",
-            "type": "nominal",
+            "type": "quantitative",
             "title": "Population Segment (currently hovering)",
-            "format": ".3s"
-          },
-          {
-            "field": "Population",
-            "type": "nominal",
-            "title": "Population Total",
             "format": ".3s"
           }
         ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": -15,
+        "fontSize": 11.5,
+        "fontStyle": "bold"
+      },
+      "encoding": {
+        "text": {"field": "Population", "type": "quantitative"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {"test": "datum['Year'] == '2015'", "value": 1},
+          "value": 0
+        }
       }
     }
   ],
