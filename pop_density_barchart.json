@@ -32,7 +32,7 @@
   "layer": [
     {"mark": "bar"},
     {
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 10},
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5, "fontSize": 11.5, "fontStyle": "bold"},
       "encoding": {
         "text": {"field": "2018", "type": "quantitative", "format": ",.0f"}
       }
