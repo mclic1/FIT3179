@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Population Growth over Time",
+  "title": "Population Density over Time",
   "width": 650,
   "height": 300,
   "data": {
@@ -238,15 +238,24 @@
   "transform": [
     {
       "filter": "Country_selection == null || datum['Country Name'] == Country_selection"
+    },
+    {
+      "calculate": "(datum['Population_density'] == 0 ? null : datum['Population_density'])",
+      "as": "Populationdensity"
     }
   ],
   "encoding": {
-    "x": {"field": "Pivot Field Names", "type": "temporal", "title": "Year"},
+    "x": {
+      "field": "Pivot Field Names",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false}
+    },
     "y": {
-      "field": "Population",
+      "field": "Populationdensity",
       "type": "quantitative",
-      "title": "Population",
-      "axis": {"format": ",.1s"}
+      "title": "Population density per sq. km",
+      "axis": {"format": ",.1f"}
     },
     "color": {"value": "black"},
     "tooltip": [
@@ -255,6 +264,12 @@
         "field": "Population",
         "type": "nominal",
         "title": "Population",
+        "format": ".3s"
+      },
+      {
+        "field": "Populationdensity",
+        "type": "nominal",
+        "title": "Population density per sq. km",
         "format": ".3s"
       }
     ]
